@@ -17,5 +17,8 @@ Repo:
 Atlassian JIRA Link
 https://testjiraanu.atlassian.net/jira/software/projects/SCRUM/boards/1?filter=&groupBy=none
 
+Atlassian Token Name
+AI Agentic Workflow
+
 Atlassian API Key
 ATATT3xFfGF0uO_8gbio2bJEAlVwobz0umCNoIwg1-MtndTp4U4CGUrKCk2kP2cSQ9Ss2FibsmOXQgS14wUnjeV1u51GULIXDqzx2GBYGFRZBMozuG6lRaLE5ETXTV-ZSzTknh_Gs-OL45O88Nnt34NDwvxv1gs8uj0tXkUjRKIO1grE68OiYME=5594E5E9
