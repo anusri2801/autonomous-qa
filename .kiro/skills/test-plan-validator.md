@@ -93,7 +93,7 @@ The primary input is a generated test plan.
 
 Expected input:
 
-testplan/[TICKET-KEY]-[short-name].md
+testplan/[ticket-key]-[short-name].md
 
 Example:
 
@@ -176,7 +176,7 @@ Verify that:
 
 Expected convention:
 
-testplan/[TICKET-KEY]-[short-name].md
+testplan/[ticket-key]-[short-name].md
 
 If the file cannot be read:
 
@@ -858,7 +858,7 @@ TEST_PLAN_VALIDATED
 JIRA: [JIRA KEY]
 
 Test Plan:
-testplan/[TICKET-KEY]-[short-name].md
+testplan/[ticket-key]-[short-name].md
 
 Validation:
 PASS
@@ -873,7 +873,7 @@ TEST_PLAN_VALIDATION_FAILED
 JIRA: [JIRA KEY]
 
 Test Plan:
-testplan/[TICKET-KEY]-[short-name].md
+testplan/[ticket-key]-[short-name].md
 
 Validation:
 FAIL

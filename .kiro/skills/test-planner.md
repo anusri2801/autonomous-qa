@@ -451,7 +451,7 @@ standards file.
 
 Expected location:
 
-testplan/[TICKET-KEY]-[short-name].md
+testplan/[ticket-key]-[short-name].md
 
 Example:
 
@@ -604,7 +604,7 @@ TEST_PLAN_GENERATED
 JIRA: [JIRA KEY]
 
 Test Plan:
-testplan/[TICKET-KEY]-[short-name].md
+testplan/[ticket-key]-[short-name].md
 
 Status:
 Ready for Validation

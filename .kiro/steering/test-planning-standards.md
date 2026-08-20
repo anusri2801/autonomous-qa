@@ -84,7 +84,7 @@ The test plan MUST use a markdown table with these columns:
 
 ## Project Conventions
 
-- Test plans: `testplan/[TICKET-KEY]-[short-name].md`
+- Test plans: `testplan/[ticket-key]-[short-name].md`
 - Scenarios must be independent and  can run in any order
 - Never hardcode URLs, credentials or environment-specific values
 - Tags: `@regression`, `@smoke`, `@sanity` from `utils/configuration.ts`
@@ -292,7 +292,7 @@ Consider:
 
 All generated test plans must follow:
 
-testplan/[TICKET-KEY]-[short-name].md
+testplan/[ticket-key]-[short-name].md
 
 Example:
 
