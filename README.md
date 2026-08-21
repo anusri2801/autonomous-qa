@@ -41,6 +41,8 @@ ATATT3xFfGF0uO_8gbio2bJEAlVwobz0umCNoIwg1-MtndTp4U4CGUrKCk2kP2cSQ9Ss2FibsmOXQgS1
 1. Install Kiro IDE
 2. Install VSX extension in Kiro
 
+**power.md** => The entry point steering file - an onboarding manual which tells what overall framework and high level architecture, what agents are available, what's their purpose, skills or capabilities of each agent, steering files , MCP servers etc
+
 **Kiro supports MCP configuration at the project level**:
 .kiro/settings/mcp.json
 
