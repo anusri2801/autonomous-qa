@@ -31,19 +31,34 @@ https://mcp.atlassian.com/v1/mcp/authv2
 
 Atlassian specifically recommends this endpoint; the older /v1/sse endpoint is no longer supported after June 30, 2026
 
+**Atlassian Token Name**
+AI Agentic Workflow
+
+**Atlassian API Key**
+ATATT3xFfGF0uO_8gbio2bJEAlVwobz0umCNoIwg1-MtndTp4U4CGUrKCk2kP2cSQ9Ss2FibsmOXQgS14wUnjeV1u51GULIXDqzx2GBYGFRZBMozuG6lRaLE5ETXTV-ZSzTknh_Gs-OL45O88Nnt34NDwvxv1gs8uj0tXkUjRKIO1grE68OiYME=5594E5E9
+
+**Kiro**
+1. Install Kiro IDE
+2. Install VSX extension in Kiro
+
 **Kiro supports MCP configuration at the project level**:
 .kiro/settings/mcp.json
 
-It also supports user-level configuration:
+It also supports **user-level configuration**:
 ~/.kiro/settings/mcp.json
 
-For our project, I recommend the workspace-level configuration because we want this Jira connection associated with this particular framework
+For our project, I recommend the **workspace-level configuration** because we want this Jira connection associated with this particular framework:
+
 Open the command palette in VSC: Cmd + Shift + P
 Search for: Kiro: Open workspace MCP config (JSON)
 Kiro will open/create: .kiro/settings/mcp.json
 
-Atlassian Token Name
-AI Agentic Workflow
-
-Atlassian API Key
-ATATT3xFfGF0uO_8gbio2bJEAlVwobz0umCNoIwg1-MtndTp4U4CGUrKCk2kP2cSQ9Ss2FibsmOXQgS14wUnjeV1u51GULIXDqzx2GBYGFRZBMozuG6lRaLE5ETXTV-ZSzTknh_Gs-OL45O88Nnt34NDwvxv1gs8uj0tXkUjRKIO1grE68OiYME=5594E5E9
+Now, in mcp.json file, **add JIRA MCP endpoint details**:
+{
+  "mcpServers": {
+    "atlassian": {
+      "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+    }
+  }
+}
+Kiro should reconnect the MCP server automatically after the configuration is saved.
