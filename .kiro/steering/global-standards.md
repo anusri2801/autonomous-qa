@@ -27,7 +27,7 @@ Agents must treat JIRA as the source of truth for requirements.
 Agents must:
 
 - Use the JIRA ticket information provided by the workflow.
-- Retrieve required information through the approved JIRA MCP Server.
+- Retrieve required information through the approved Atlassian Rovo MCP Server.
 - Preserve acceptance criteria.
 - Identify ambiguity explicitly.
 - Ask for clarification when requirements are insufficient.

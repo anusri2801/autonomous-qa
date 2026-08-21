@@ -112,9 +112,9 @@ retrieved from JIRA.
 
 ## 5. JIRA Integration
 
-Use the configured JIRA MCP server to retrieve the requested ticket.
+Use the configured Atlassian Rovo MCP Server to retrieve the requested ticket.
 
-The JIRA MCP server is responsible for authentication and communication
+The Atlassian Rovo MCP Server is responsible for authentication and communication
 with the configured JIRA instance.
 
 The Test Planner must not directly manage credentials or authentication
@@ -188,7 +188,7 @@ If the ticket ID is missing or invalid:
 
 ### Step 3 — Fetch JIRA Ticket
 
-Use the configured JIRA MCP server to retrieve the ticket.
+Use the configured Atlassian Rovo MCP Server to retrieve the ticket.
 
 If the ticket cannot be retrieved:
 

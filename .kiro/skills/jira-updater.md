@@ -118,7 +118,7 @@ Do not update JIRA.
 
 ## 6. JIRA Integration
 
-Use the configured JIRA MCP server.
+Use the configured Atlassian Rovo MCP Server.
 
 JIRA configuration is externalized.
 
@@ -144,7 +144,7 @@ Do not hard-code:
 Before updating JIRA:
 
 1. Extract the JIRA Ticket ID from the test plan.
-2. Retrieve the JIRA ticket through the JIRA MCP server.
+2. Retrieve the JIRA ticket through the Atlassian Rovo MCP Server.
 3. Confirm that the ticket exists.
 4. Confirm that the test plan refers to the same ticket.
 5. Confirm that the test-plan feature matches the ticket.
@@ -172,7 +172,7 @@ Execute the following workflow sequentially:
 11. Generate the JIRA testing-note content.
 12. Check for an existing QA Test Plan update.
 13. Determine create vs update behaviour.
-14. Publish the testing note through JIRA MCP.
+14. Publish the testing note through Atlassian Rovo MCP.
 15. Verify the update where supported.
 16. Return completion status.
 
@@ -361,7 +361,7 @@ JIRA_UPDATE_BLOCKED
 
 ## 19. Update Failure Handling
 
-If the JIRA MCP update fails:
+If the Atlassian Rovo MCP update fails:
 
 Return:
 
@@ -383,7 +383,7 @@ Do not claim that the JIRA update succeeded.
 
 ## 20. Update Verification
 
-Where the JIRA MCP supports retrieval after an update:
+Where the Atlassian Rovo MCP supports retrieval after an update:
 
 1. Re-fetch the relevant JIRA testing-note location.
 2. Confirm that the update exists.
