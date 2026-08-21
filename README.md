@@ -8,14 +8,39 @@ The steering defines how that capability must behave.
 3. Create skills files which define capabilty of each agent (purpose, workflow, what agent should do)
 4. Create steering files which define the rules and how each capability must behave
 
-Repo:
+**Repo**:
 1. Created Global-standards.md and test-planning-standards.md file(steering)
 2. Create test-planner.md file(skills)
 3. Create test-plan-validator.md file(skills)
 
 
-Atlassian JIRA Link
+**Atlassian JIRA Link**
 https://testjiraanu.atlassian.net/jira/software/projects/SCRUM/boards/1?filter=&groupBy=none
+
+**JIRA site:**
+https://testjiraanu.atlassian.net
+
+**JIRA project:**
+SCRUM
+
+**Test ticket:**
+SCRUM-2
+
+The recommended approach is OAuth authentication. Atlassian's current Rovo MCP endpoint is:
+https://mcp.atlassian.com/v1/mcp/authv2
+
+Atlassian specifically recommends this endpoint; the older /v1/sse endpoint is no longer supported after June 30, 2026
+
+**Kiro supports MCP configuration at the project level**:
+.kiro/settings/mcp.json
+
+It also supports user-level configuration:
+~/.kiro/settings/mcp.json
+
+For our project, I recommend the workspace-level configuration because we want this Jira connection associated with this particular framework
+Open the command palette in VSC: Cmd + Shift + P
+Search for: Kiro: Open workspace MCP config (JSON)
+Kiro will open/create: .kiro/settings/mcp.json
 
 Atlassian Token Name
 AI Agentic Workflow
