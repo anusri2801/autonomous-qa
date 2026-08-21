@@ -13,6 +13,8 @@ description: Generate structured, traceable and automation-ready test plans from
 **Framework:** Autonomous QA Test Automation Framework
 **Execution Environment:** Kiro
 
+---
+
 ## 1. Purpose
 
 The Test Planner Agent converts a JIRA ticket into a structured,
@@ -24,10 +26,12 @@ All test-planning rules, test-case standards, output structures,
 naming conventions, traceability requirements, and quality gates are
 defined in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 The Test Planner must follow that steering file and must not duplicate
 or override its standards.
+
+---
 
 ## 2. Role
 
@@ -55,10 +59,13 @@ Do not generate unnecessary test cases simply to increase coverage.
 
 Do not make unsupported assumptions about system behaviour.
 
+---
+
 ## 3. Framework Dependencies
 
 The Test Planner operates within the following framework hierarchy:
 
+```text
 power.md
     |
     v
@@ -69,16 +76,18 @@ steering/test-planning-standards.md
     |
     v
 skills/test-planner.md
+```
 
 The Test Planner must comply with all applicable framework rules.
 
-The following file is the authoritative source for test-planning
-standards:
+The authoritative source for test-planning standards is:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 If a rule is already defined in the steering file, follow that rule
 rather than creating a different rule in this skill.
+
+---
 
 ## 4. Input
 
@@ -86,21 +95,25 @@ The Test Planner must be JIRA-project agnostic.
 
 The required input is a JIRA Ticket ID in the format:
 
-[PROJECT-KEY]-[ISSUE-NUMBER].
+```text
+[PROJECT-KEY]-[ISSUE-NUMBER]
+```
 
-Example:
+Examples:
 
+```text
 PROJ-1234
 SCRUM-2
 CLM-1842
 PAY-927
+```
 
 The project must be derived from the supplied JIRA issue key and the
 retrieved JIRA issue.
 
 The skill must not hard-code a specific project key.
 
-JIRA_PROJECT may be configured as a default project for ticket discovery,
+`JIRA_PROJECT` may be configured as a default project for ticket discovery,
 but it must not override the project identified by an explicitly supplied
 issue key.
 
@@ -108,12 +121,16 @@ The Test Planner should be invoked with a specific JIRA ticket.
 
 Example:
 
+```text
 Create a test plan for PROJ-1234.
+```
 
 The JIRA ticket is the primary source of truth for the requirement.
 
 Do not ask the user to manually provide information that can be
 retrieved from JIRA.
+
+---
 
 ## 5. JIRA Integration
 
@@ -122,8 +139,7 @@ Use the configured Atlassian Rovo MCP Server to retrieve the requested ticket.
 The Atlassian Rovo MCP Server is responsible for authentication and communication
 with the configured JIRA instance.
 
-The Test Planner must not directly manage credentials or authentication
-tokens.
+The Test Planner must not directly manage credentials or authentication tokens.
 
 ### Configuration
 
@@ -131,9 +147,11 @@ JIRA configuration must be externalized.
 
 Expected configuration values:
 
+```text
 JIRA_INSTANCE_URL
 JIRA_SITE_HOSTNAME
 JIRA_PROJECT
+```
 
 Do not hard-code:
 
@@ -166,8 +184,9 @@ Retrieve the following information where available:
 - Relevant comments.
 - Existing testing information.
 
-The Test Planner must use the retrieved JIRA information as the basis
-for test planning.
+The Test Planner must use the retrieved JIRA information as the basis for test planning.
+
+---
 
 ## 6. Sequential Workflow
 
@@ -179,7 +198,9 @@ Receive the JIRA Ticket ID.
 
 Example:
 
+```text
 PROJ-1234
+```
 
 ### Step 2 — Validate Input
 
@@ -221,11 +242,8 @@ Identify:
 - Relevant security considerations.
 - Relevant non-functional considerations.
 
-Use:
-
-steering/test-planning-standards.md
-
-to determine how the requirement must be translated into test coverage.
+Use `steering/test-planning-standards.md` to determine how the requirement
+must be translated into test coverage.
 
 ### Step 5 — Extract Acceptance Criteria
 
@@ -235,6 +253,7 @@ Preserve their original intent.
 
 Create a clear mapping between:
 
+```text
 JIRA Acceptance Criteria
         |
         v
@@ -242,6 +261,7 @@ Test Scenarios
         |
         v
 Test Cases
+```
 
 Do not assume that one Acceptance Criterion equals exactly one test case.
 
@@ -259,7 +279,7 @@ Based on the requirement and acceptance criteria, identify appropriate:
 
 Follow the detailed scenario-generation rules in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 Do not invent behaviour that is not supported by the requirement.
 
@@ -302,7 +322,7 @@ Do not include:
 
 Follow all test-data rules defined in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 ### Step 9 — Create Test Cases
 
@@ -316,7 +336,7 @@ Each test case must maintain traceability to:
 
 Follow the required test-case structure and table format defined in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 ### Step 10 — Write Test Steps
 
@@ -338,7 +358,7 @@ Do not create:
 
 Follow the step-writing rules in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 ### Step 11 — Define Expected Results
 
@@ -347,12 +367,11 @@ For every test case, define observable and testable expected results.
 Expected results must be derived from the JIRA requirement or clearly
 supported system behaviour.
 
-Do not invent exact error messages, validation messages, or system
-behaviour.
+Do not invent exact error messages, validation messages, or system behaviour.
 
 Follow the expected-result standards defined in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 ### Step 12 — Assess Automation Candidate
 
@@ -360,11 +379,15 @@ Determine whether each test case is suitable for Playwright automation.
 
 Classify each test case as:
 
+```text
 Automation: Yes
+```
 
 or:
 
+```text
 Automation: No
+```
 
 When automation is not appropriate, record the reason according to the
 test-planning standards.
@@ -386,8 +409,7 @@ Consider relevant:
 
 Follow the regression-impact rules defined in:
 
-steering/test-planning-standards.md
-
+`steering/test-planning-standards.md`
 
 ### Step 14 — Identify Risks and Open Questions
 
@@ -412,6 +434,7 @@ Record such items according to the standards file.
 
 Before generating the final document, verify:
 
+```text
 JIRA Ticket
     |
     v
@@ -422,19 +445,20 @@ Test Scenarios
     |
     v
 Test Cases
+```
 
 Every applicable Acceptance Criterion must have test coverage unless it
 is explicitly identified as non-testable.
 
 Follow the traceability rules defined in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 ### Step 16 — Validate Test Plan
 
 Validate the generated test plan against:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 The validation must confirm that:
 
@@ -455,6 +479,7 @@ The validation must confirm that:
 
 If validation fails, correct the test plan before saving it.
 
+---
 
 ## 7. Output
 
@@ -463,7 +488,7 @@ Generate one Markdown test plan.
 The output structure, table formats, field definitions, and content
 requirements are governed by:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
 
 Do not create a different output format in this skill.
 
@@ -472,11 +497,17 @@ standards file.
 
 Expected location:
 
+```text
 testplan/[ticket-key]-[short-name].md
+```
 
 Example:
 
+```text
 testplan/PROJ-1234-password-reset.md
+```
+
+---
 
 ## 8. Downstream Handoff
 
@@ -521,6 +552,8 @@ The Test Planner must not generate:
 
 These belong to the Playwright Automation Agent.
 
+---
+
 ## 9. Scope Boundaries
 
 The Test Planner owns:
@@ -549,42 +582,30 @@ The Test Planner does not own:
 
 Those responsibilities belong to downstream skills or agents.
 
+---
+
 ## 10. Project Conventions
 
-The Test Planner must follow project conventions defined in:
-
-power.md
-
-and:
-
-steering/test-planning-standards.md
+The Test Planner must follow project conventions defined in `power.md` and
+`steering/test-planning-standards.md`.
 
 The Test Planner must not create alternative directory structures,
 naming conventions, tags, or output formats.
 
-The expected test-plan directory is:
+| Artifact       | Location          |
+|----------------|-------------------|
+| Test plans     | `testplan/`       |
+| Tests          | `src/tests/`      |
+| Page Objects   | `src/pages/`      |
+| Test data      | `src/testdata/`   |
 
-testplan/
+The Test Planner does not create or modify downstream implementation files.
 
-The downstream Playwright Automation Agent is responsible for files under:
-
-src/tests/
-
-Page Objects belong under:
-
-src/pages/
-
-Test data belongs under:
-
-src/testdata/
-
-The Test Planner does not create or modify these downstream
-implementation files.
+---
 
 ## 11. No-Invention Principle
 
-The Test Planner must never invent requirements or implementation
-details.
+The Test Planner must never invent requirements or implementation details.
 
 Do not invent:
 
@@ -603,7 +624,9 @@ Do not invent:
 
 If information is unavailable, follow the handling rules defined in:
 
-steering/test-planning-standards.md
+`steering/test-planning-standards.md`
+
+---
 
 ## 12. Completion
 
@@ -620,6 +643,7 @@ The Test Planner is considered successful only when:
 
 After successful completion, return:
 
+```text
 TEST_PLAN_GENERATED
 
 JIRA: [JIRA KEY]
@@ -629,3 +653,4 @@ testplan/[ticket-key]-[short-name].md
 
 Status:
 Ready for Validation
+```

@@ -1,3 +1,7 @@
+---
+inclusion: always
+---
+
 # Global Agent Standards
 
 ## Purpose
@@ -5,6 +9,8 @@
 Define the common behavioural, engineering, security and governance
 standards that apply to all agents and skills in the Autonomous QA
 framework.
+
+---
 
 ## 1. Core Principles
 
@@ -19,6 +25,8 @@ All agents and skills must:
 - Fail safely when required information is unavailable.
 - Prefer deterministic behaviour where possible.
 - Keep responsibilities separated between agents and skills.
+
+---
 
 ## 2. Requirement Integrity
 
@@ -39,6 +47,8 @@ Agents must not:
 - Change requirements to make a test pass.
 - Ignore conflicting requirements without reporting them.
 
+---
+
 ## 3. Agent and Skill Boundaries
 
 Agents are responsible for:
@@ -57,6 +67,8 @@ Skills are responsible for:
 A skill must not perform responsibilities belonging to another skill
 unless explicitly defined in its contract.
 
+---
+
 ## 4. Structured Output
 
 Agents and skills should produce structured outputs whenever practical.
@@ -72,6 +84,8 @@ Outputs must conform to the relevant schema where a schema exists.
 Invalid output must be detected before it is passed to downstream
 workflow stages.
 
+---
+
 ## 5. Traceability
 
 All workflow artifacts must maintain traceability to the originating
@@ -79,6 +93,7 @@ JIRA ticket.
 
 Traceability should follow:
 
+```text
 JIRA Ticket
     ↓
 Requirement
@@ -90,8 +105,11 @@ Test Case
 Automation
     ↓
 Execution Result
+```
 
 The JIRA ticket ID must not be lost between workflow stages.
+
+---
 
 ## 6. File Management
 
@@ -111,6 +129,8 @@ Agents must not:
 - Modify unrelated project files.
 - Modify application source code unless explicitly authorized.
 
+---
+
 ## 7. Security
 
 Agents must:
@@ -121,6 +141,8 @@ Agents must:
 - Use environment variables or approved secret management.
 - Avoid logging sensitive information.
 - Follow least-privilege principles for MCP tools.
+
+---
 
 ## 8. Error Handling
 
@@ -141,6 +163,8 @@ Agents must not silently ignore errors.
 
 Failures must contain sufficient context for downstream analysis.
 
+---
+
 ## 9. Human-in-the-Loop
 
 Human approval must be respected when required by the workflow.
@@ -155,6 +179,8 @@ Actions requiring approval may include:
 - Low-confidence test healing
 - Unknown failure classification
 
+---
+
 ## 10. Autonomous Behaviour
 
 Autonomous actions must be bounded by explicit policies.
@@ -167,6 +193,8 @@ Agents must:
 - Escalate when confidence is insufficient.
 
 Autonomy must never override safety, security or governance rules.
+
+---
 
 ## 11. Logging and Auditability
 
@@ -186,6 +214,8 @@ Where applicable, record:
 
 Sensitive information must not be written to logs.
 
+---
+
 ## 12. Change Safety
 
 Agents modifying existing automation must:
@@ -196,6 +226,8 @@ Agents modifying existing automation must:
 4. Validate the change.
 5. Preserve existing coverage.
 6. Avoid unrelated refactoring.
+
+---
 
 ## 13. Determinism
 
@@ -213,6 +245,8 @@ Examples:
 LLM-generated content must always be validated before downstream
 consumption.
 
+---
+
 ## 14. Context Management
 
 Agents should use only the information required for the current task.
@@ -225,6 +259,8 @@ Do not unnecessarily pass:
 - Sensitive information
 
 Context should be scoped to the current workflow stage.
+
+---
 
 ## 15. Framework Compliance
 

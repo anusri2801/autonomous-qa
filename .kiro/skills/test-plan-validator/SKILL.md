@@ -1,8 +1,7 @@
 ---
-
 name: test-plan-validator
 description: Validate QA test plans for requirement traceability, acceptance criteria coverage, test structure, expected results, automation candidates, tags, risks, open questions, unsupported assumptions, duplicate scenarios, internal consistency, and project standards. Use when validating or reviewing a generated test plan before downstream processing.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Test Plan Validator Skill
 

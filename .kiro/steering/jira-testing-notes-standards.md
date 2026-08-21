@@ -1,3 +1,7 @@
+---
+inclusion: always
+---
+
 # JIRA Testing Notes Standards
 
 ## Purpose
@@ -8,6 +12,8 @@ JIRA testing notes.
 These standards ensure that JIRA contains a consistent, concise,
 traceable, and reviewable representation of the testing planned for a
 JIRA ticket.
+
+---
 
 ## 1. Source of Truth
 
@@ -34,6 +40,8 @@ The JIRA Updater must not invent:
 All published testing information must originate from the validated
 test plan or explicitly supplied test-execution results.
 
+---
+
 ## 2. Validation Requirement
 
 Only a test plan that has successfully passed the Test Plan Validator
@@ -41,6 +49,7 @@ may be published to JIRA.
 
 Required workflow:
 
+```text
 Test Planner
     |
     v
@@ -52,9 +61,12 @@ Test Plan Validator
     +---- FAIL ---> Stop
     |
     +---- PASS ---> JIRA Updater
+```
 
 If validation status cannot be confirmed, the JIRA Updater must not
 publish the testing notes.
+
+---
 
 ## 3. JIRA Scope
 
@@ -76,6 +88,8 @@ JIRA fields such as:
 - Story Points
 - Other unrelated fields
 
+---
+
 ## 4. Testing Note Objective
 
 The JIRA testing note must provide a concise summary of the validated
@@ -96,13 +110,15 @@ It should communicate:
 
 The complete test plan remains in the repository.
 
-JIRA should contain a summary, not a duplicate of the complete test
-plan.
+JIRA should contain a summary, not a duplicate of the complete test plan.
+
+---
 
 ## 5. Required Testing Note Format
 
 The JIRA testing note must follow this structure:
 
+```markdown
 ## QA Test Plan
 
 ### Test Plan
@@ -116,14 +132,12 @@ Brief summary of the functionality covered by the test plan.
 
 ### Test Coverage
 
-| Test Type     | Count|
-|---------------|-----:|
-| Functional    | X    |
-| Non-Functional| X    |
-| Security      | X    |
-| Regression    | X    |
-
-Only include applicable test types.
+| Test Type      | Count |
+|----------------|------:|
+| Functional     | X     |
+| Non-Functional | X     |
+| Security       | X     |
+| Regression     | X     |
 
 ### Acceptance Criteria Coverage
 
@@ -146,8 +160,6 @@ Only include applicable test types.
 | TD-001       | Registered user |
 | TD-002       | Invalid email   |
 
-Do not include credentials or secrets.
-
 ### Regression Impact
 
 Brief summary of relevant regression areas.
@@ -163,6 +175,13 @@ List unresolved questions that materially affect testing.
 ### Status
 
 Test Plan: Validated
+```
+
+Only include applicable test types.
+
+Do not include credentials or secrets.
+
+---
 
 ## 6. Conciseness
 
@@ -181,6 +200,8 @@ Do not copy:
 
 The repository test plan remains the detailed source.
 
+---
+
 ## 7. Test Plan Reference
 
 Always include the generated test-plan path.
@@ -194,6 +215,8 @@ the configured repository URL.
 
 The JIRA Updater must not invent repository URLs.
 
+---
+
 ## 8. Acceptance Criteria Traceability
 
 Acceptance criteria must remain traceable to test cases.
@@ -205,8 +228,7 @@ Use:
 | AC-001 | TC-001         | Covered |
 | AC-002 | TC-002, TC-003 | Covered |
 
-Every applicable acceptance criterion should have corresponding test
-coverage.
+Every applicable acceptance criterion should have corresponding test coverage.
 
 If an acceptance criterion is explicitly identified as non-testable,
 the reason must be documented in the test plan.
@@ -214,10 +236,11 @@ the reason must be documented in the test plan.
 The JIRA note must reflect the validated test plan and must not create
 new mappings.
 
+---
+
 ## 9. Test Coverage Counts
 
-Coverage counts must be calculated directly from the validated test
-plan.
+Coverage counts must be calculated directly from the validated test plan.
 
 Examples:
 
@@ -229,6 +252,8 @@ Examples:
 Do not estimate or manually invent counts.
 
 The counts in JIRA must match the validated test plan.
+
+---
 
 ## 10. Automation Summary
 
@@ -243,12 +268,10 @@ An automation candidate means the test is suitable for automation.
 
 It does not mean that Playwright code has already been generated.
 
-Do not claim that a test is:
+Do not claim that a test is `Automated` unless executable automation has
+actually been generated and the downstream workflow has confirmed it.
 
-`Automated`
-
-unless executable automation has actually been generated and the
-downstream workflow has confirmed it.
+---
 
 ## 11. Testing Status
 
@@ -268,6 +291,8 @@ been supplied by the Test Runner workflow.
 
 Test planning status and test execution status must remain separate.
 
+---
+
 ## 12. Duplicate Update Prevention
 
 The JIRA Updater must avoid creating duplicate testing notes for the
@@ -281,6 +306,8 @@ Recommended identifier:
 
 Before creating a new testing note, the updater should determine whether
 a previous QA Test Plan update exists.
+
+---
 
 ## 13. Update Behaviour
 
@@ -299,6 +326,8 @@ Create a new versioned testing note according to project conventions.
 
 The updater must not overwrite unrelated JIRA comments or documentation.
 
+---
+
 ## 14. Version Identification
 
 Where versioning is required, use:
@@ -314,6 +343,8 @@ exists.
 
 The updater must not invent a versioning scheme if the project has not
 defined one.
+
+---
 
 ## 15. Test Data
 
@@ -338,6 +369,8 @@ Never publish:
 
 Use test-data references instead.
 
+---
+
 ## 16. Sensitive Information
 
 Before publishing the testing note, verify that it does not contain
@@ -350,10 +383,13 @@ If sensitive information is detected:
 3. Identify that sensitive information was detected.
 4. Do not expose the sensitive value in the error message.
 
+---
+
 ## 17. Source Traceability
 
 The JIRA testing note must preserve the following traceability:
 
+```text
 JIRA Ticket
     |
     v
@@ -364,10 +400,13 @@ Acceptance Criteria
     |
     v
 Test Cases
+```
 
 The JIRA note is a summary and reference point.
 
 The repository test plan remains the detailed source for test design.
+
+---
 
 ## 18. Regression Impact
 
@@ -383,6 +422,8 @@ The summary should identify affected or related areas such as:
 - Business-critical paths
 
 Do not include unrelated regression areas.
+
+---
 
 ## 19. Risks
 
@@ -400,6 +441,8 @@ Examples:
 
 Do not invent risks.
 
+---
+
 ## 20. Open Questions
 
 Include only material unresolved questions from the validated test plan.
@@ -414,6 +457,8 @@ Examples:
 - Undefined dependencies
 
 Do not silently convert open questions into confirmed requirements.
+
+---
 
 ## 21. Formatting Standards
 
@@ -434,6 +479,8 @@ Avoid:
 - Locators
 - Selectors
 - Debug output
+
+---
 
 ## 22. No-Invention Rule
 
@@ -456,6 +503,8 @@ Do not invent:
 If information is unavailable, preserve the absence rather than making
 an assumption.
 
+---
+
 ## 23. Test Execution Separation
 
 These standards define JIRA documentation for test planning.
@@ -466,6 +515,7 @@ Execution results must be supplied by the Test Runner workflow.
 
 The following distinction must always be maintained:
 
+```text
 Test Plan
     =
 Planned test coverage
@@ -473,9 +523,11 @@ Planned test coverage
 Test Execution
     =
 Actual test results
+```
 
-A validated test plan must not be described as successful test
-execution.
+A validated test plan must not be described as successful test execution.
+
+---
 
 ## 24. Quality Gate
 
@@ -494,6 +546,8 @@ A JIRA testing note is valid only when:
 - No unsupported testing claims are made.
 - No unrelated JIRA fields are modified.
 
+---
+
 ## 25. Failure Handling
 
 If the JIRA update fails, the updater must not report success.
@@ -510,6 +564,8 @@ The failure should include:
 - Whether the test plan itself remains valid
 
 The validated test plan must remain unchanged.
+
+---
 
 ## 26. Completion State
 

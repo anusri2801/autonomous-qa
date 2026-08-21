@@ -1,61 +1,112 @@
-power.md defines what exists and the overall contract like agents, capability of each agent(skills) , steering files which define instructions , behaviour of each capability, sequential workflow, mcp servers used, project conventions etc.
+# Autonomous QA Framework
 
-The skill defines what the capability does(purpose), input and output
-The steering defines how that capability must behave.
+## Overview
 
-1. Install Playwright
-2. Create kiro folders
-3. Create skills files which define capabilty of each agent (purpose, workflow, what agent should do)
-4. Create steering files which define the rules and how each capability must behave
+`power.md` is the entry point — an onboarding manual that defines the overall framework and high-level architecture, including available agents, their capabilities (skills), steering files, MCP servers and project conventions.
 
-**Repo**:
-1. Created Global-standards.md and test-planning-standards.md file(steering)
-2. Create test-planner.md file(skills)
-3. Create test-plan-validator.md file(skills)
+- The **skill** defines what a capability does (purpose, input, output, workflow).
+- The **steering** defines how that capability must behave (rules, standards, constraints).
 
+---
 
-**Atlassian JIRA Link**
-https://testjiraanu.atlassian.net/jira/software/projects/SCRUM/boards/1?filter=&groupBy=none
+## Setup
 
-**JIRA site:**
-https://testjiraanu.atlassian.net
+### 1. Install Playwright
 
-**JIRA project:**
-SCRUM
+```bash
+npm install
+npx playwright install
+```
 
-**Test ticket:**
-SCRUM-2
+### 2. Create Kiro folders
 
-The recommended approach is OAuth authentication. Atlassian's current Rovo MCP endpoint is:
+The framework uses `.kiro/` for skills, steering and settings.
+
+```text
+.kiro/
+  skills/
+    test-planner/SKILL.md
+    test-plan-validator/SKILL.md
+    jira-updater/SKILL.md
+  steering/
+    global-standards.md
+    test-planning-standards.md
+    jira-testing-notes-standards.md
+  settings/
+    mcp.json
+```
+
+### 3. Create skill files
+
+Skills define the capability of each agent — purpose, workflow, inputs and outputs.
+
+### 4. Create steering files
+
+Steering files define the rules and behavioural standards for each capability.
+
+---
+
+## Repository Structure
+
+| Artifact         | Location |
+|------------------|----------|
+| Test plans       | `testplan/[ticket-key]-[short-name].md` |
+| Playwright tests | `src/tests/ui/[app-folder]/[feature-name].spec.ts` |
+| Page Objects     | `src/pages/ui/[Feature]Page.ts` |
+| Test data        | `src/testdata/` |
+| Execution results| `execution-results/` |
+| Validation reports | `validation/` |
+
+**Created so far:**
+
+- `global-standards.md` and `test-planning-standards.md` (steering)
+- `test-planner` SKILL.md
+- `test-plan-validator` SKILL.md
+- `jira-updater` SKILL.md
+
+---
+
+## JIRA Configuration
+
+**JIRA Link:** [SCRUM board](https://testjiraanu.atlassian.net/jira/software/projects/SCRUM/boards/1)
+
+**JIRA Site:** `https://testjiraanu.atlassian.net`
+
+**JIRA Project:** `SCRUM`
+
+**Test Ticket:** `SCRUM-2`
+
+---
+
+## Atlassian MCP Setup
+
+The recommended approach is OAuth authentication.
+
+**Atlassian Rovo MCP endpoint:**
+
+```text
 https://mcp.atlassian.com/v1/mcp/authv2
+```
 
-Atlassian specifically recommends this endpoint; the older /v1/sse endpoint is no longer supported after June 30, 2026
+> Note: The older `/v1/sse` endpoint is no longer supported after June 30, 2026.
 
-**Atlassian Token Name**
-AI Agentic Workflow
+**Token Name:** AI Agentic Workflow
 
-**Atlassian API Key**
-ATATT3xFfGF0uO_8gbio2bJEAlVwobz0umCNoIwg1-MtndTp4U4CGUrKCk2kP2cSQ9Ss2FibsmOXQgS14wUnjeV1u51GULIXDqzx2GBYGFRZBMozuG6lRaLE5ETXTV-ZSzTknh_Gs-OL45O88Nnt34NDwvxv1gs8uj0tXkUjRKIO1grE68OiYME=5594E5E9
+### Configure MCP in Kiro
 
-**Kiro**
-1. Install Kiro IDE
-2. Install VSX extension in Kiro
+Kiro supports MCP configuration at two levels:
 
-**power.md** => The entry point steering file - an onboarding manual which tells what overall framework and high level architecture, what agents are available, what's their purpose, skills or capabilities of each agent, steering files , MCP servers etc
+- **Workspace level** (recommended for this project): `.kiro/settings/mcp.json`
+- **User level** (global/cross-workspace): `~/.kiro/settings/mcp.json`
 
-**Kiro supports MCP configuration at the project level**:
-.kiro/settings/mcp.json
+**Steps:**
 
-It also supports **user-level configuration**:
-~/.kiro/settings/mcp.json
+1. Open the command palette: `Cmd + Shift + P`
+2. Search for: `Kiro: Open workspace MCP config (JSON)`
+3. Kiro will open/create `.kiro/settings/mcp.json`
+4. Add the JIRA MCP endpoint:
 
-For our project, I recommend the **workspace-level configuration** because we want this Jira connection associated with this particular framework:
-
-Open the command palette in VSC: Cmd + Shift + P
-Search for: Kiro: Open workspace MCP config (JSON)
-Kiro will open/create: .kiro/settings/mcp.json
-
-Now, in mcp.json file, **add JIRA MCP endpoint details**:
+```json
 {
   "mcpServers": {
     "atlassian": {
@@ -63,4 +114,13 @@ Now, in mcp.json file, **add JIRA MCP endpoint details**:
     }
   }
 }
-Kiro should reconnect the MCP server automatically after the configuration is saved.
+```
+
+Kiro reconnects the MCP server automatically after the configuration is saved.
+
+---
+
+## Kiro IDE
+
+1. Install Kiro IDE
+2. Install the VSX extension in Kiro
