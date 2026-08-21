@@ -1,3 +1,8 @@
+---
+name: jira-updater
+description: Publish validated QA test-plan summaries to JIRA testing notes. Use when updating JIRA with validated test plans, acceptance criteria coverage, testing scope, automation summaries and regression impact.
+---
+
 # JIRA Updater Skill
 
 **Skill Name:** jira-updater

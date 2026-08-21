@@ -1,6 +1,11 @@
+---
+name: test-planner
+description: Generate structured, traceable and automation-ready test plans from JIRA tickets. Use when creating test plans, analysing JIRA acceptance criteria, generating test scenarios, or planning QA testing.
+---
+
 # Test Planner Skill
 
-**Skill Name:** testplanner
+**Skill Name:** test-planner
 **Version:** 1.0
 **Status:** Active
 **Skill Type:** QA Test Planning
