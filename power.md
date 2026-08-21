@@ -28,8 +28,6 @@ The framework is designed around:
 The system must prioritize correctness, traceability, maintainability,
 security and controlled autonomy over unrestricted automation.
 
----
-
 # 2. High-Level Architecture
 
 The framework consists of the following layers:
@@ -104,12 +102,19 @@ Agents must consume and produce structured data wherever possible.
 
 # 3. MCP Servers
 
-## 3.1 JIRA MCP Server
+## 3.1 JIRA Atlassian Rovo MCP
 
-### Purpose
+### Purpose:
+Provides Jira access for retrieving and updating Jira issues.
 
-Provide controlled access to JIRA for retrieving ticket information
-and updating testing information.
+Endpoint:
+https://mcp.atlassian.com/v1/mcp/authv2
+
+Authentication:
+OAuth 2.1
+
+Access:
+Based on authenticated user's Jira permissions.
 
 ### Capabilities
 

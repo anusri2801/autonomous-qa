@@ -77,11 +77,27 @@ rather than creating a different rule in this skill.
 
 ## 4. Input
 
-The required input is a JIRA Ticket ID.
+The Test Planner must be JIRA-project agnostic.
+
+The required input is a JIRA Ticket ID in the format:
+
+[PROJECT-KEY]-[ISSUE-NUMBER].
 
 Example:
 
 PROJ-1234
+SCRUM-2
+CLM-1842
+PAY-927
+
+The project must be derived from the supplied JIRA issue key and the
+retrieved JIRA issue.
+
+The skill must not hard-code a specific project key.
+
+JIRA_PROJECT may be configured as a default project for ticket discovery,
+but it must not override the project identified by an explicitly supplied
+issue key.
 
 The Test Planner should be invoked with a specific JIRA ticket.
 
