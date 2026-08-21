@@ -204,7 +204,7 @@ agents unless explicitly authorized.
 
 # 4. Skills
 
-# 4.1 testplanner
+# 4.1 test-planner
 
 ## Purpose
 
@@ -265,7 +265,7 @@ The test plan must contain:
 
 ## Dependencies
 
-- JIRA MCP Server
+- JIRA Atlassian Rovo MCP Server
 - Test planning steering
 - Test plan schema
 
@@ -321,7 +321,7 @@ Structured validation result containing:
 
 ## Dependencies
 
-- JIRA MCP Server
+- JIRA Atlassian Rovo MCP Server
 - Test plan schema
 - Test planning steering
 
@@ -341,7 +341,7 @@ Generate executable Playwright tests from an approved test plan.
 
 Playwright test files:
 
-src/tests/ui/[app-folder]/[feature-name].spec.ts
+src/tests/[app-folder]/[feature-name].spec.ts
 
 ## Process
 
