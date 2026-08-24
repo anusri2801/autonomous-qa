@@ -5,7 +5,7 @@ description: Convert validated QA test plans into executable Playwright UI autom
 
 # Automate UI Skill
 
-**Skill Name:** automateUi
+**Skill Name:** automate-ui
 **Version:** 1.0
 **Status:** Active
 **Skill Type:** UI Test Automation
