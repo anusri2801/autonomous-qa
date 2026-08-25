@@ -65,7 +65,7 @@ Typical project locations:
 
 ```text
 src/pages/
-src/tests/
+tests/
 src/testdata/
 src/utils/
 src/fixtures/
@@ -300,29 +300,32 @@ Do not introduce a new tag from the automation agent.
 
 ## 14. File Structure
 
-Default project conventions:
+Project conventions (governed by `testDir` in `playwright.config.ts`):
 
 ```text
+tests/
+└── [Feature]/
+    └── [feature-name].spec.ts
+
 src/
-├── tests/
-│       └── [app-folder]/
-│           └── [feature-name].spec.ts
-│
 ├── pages/
-│
+│   └── [Feature]Page.ts
 ├── testdata/
-│
+│   └── [feature]data.ts
 ├── utils/
-│
 └── fixtures/
 ```
 
-Example:
+- Specs live under `tests/` — matches `testDir: './tests'` in `playwright.config.ts`.
+- Page Objects, test data, utilities and fixtures live under `src/`.
+- If `testDir` is changed in `playwright.config.ts`, specs must be placed in the updated location.
 
-```text
-src/tests/Login/login.spec.ts
+Examples:
+
+```
+tests/Login/login.spec.ts
 src/pages/LoginPage.ts
-src/testdata/login.json
+src/testdata/logindata.ts
 ```
 
 Do not create alternate framework locations without justification.

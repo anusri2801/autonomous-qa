@@ -334,27 +334,36 @@ testplan/DEMO-001-password-reset.md
 
 ## 13. Quality Gate
 
-A test plan is considered valid only when:
-
-- The JIRA requirement has been successfully retrieved.
-- Requirements have been analysed.
-- All applicable acceptance criteria have been identified.
-- Every acceptance criterion has appropriate test coverage.
-- Appropriate positive scenarios have been considered.
-- Appropriate negative scenarios have been considered.
-- Boundary scenarios have been considered where applicable.
-- Test cases have clear expected results.
-- Test cases are traceable to acceptance criteria.
-- Test data references are identified where required.
-- Screen and URL information is identified where applicable.
-- Test steps are concise, atomic and executable.
-- Automation candidates are identified.
-- Approved tags are used.
-- Test priorities are appropriate.
-- Regression impact has been assessed.
-- Relevant risks have been documented.
-- Open questions have been documented.
-- No unsupported requirements, business rules, URLs, test data or expected behaviour have been invented.
-- The test plan follows the project naming and folder conventions.
+A test plan is considered valid only when all gates below pass.
 
 The Test Plan Validator is responsible for enforcing this quality gate.
+
+Evaluate every applicable gate. Report `NOT VERIFIED` or `NOT APPLICABLE` where appropriate. Never report PASS for a gate that was not actually evaluated.
+
+| Quality Gate | Source |
+|---|---|
+| Test plan file exists and is readable | §12 |
+| File location and naming convention | §12 |
+| Required sections present | Output Format |
+| Requirements analysed | §1 |
+| All ACs identified and covered | §13 |
+| Positive scenarios covered | §4 |
+| Negative scenarios covered | §5 |
+| Boundary scenarios considered | §6 |
+| Test case structure complete | §3 |
+| Test Case IDs unique and sequential | §3 |
+| Test steps follow rules | Steps Writing Rules |
+| Expected results present and verifiable | §3 |
+| Test types approved | Table Column Rules |
+| Priorities appropriate | Table Column Rules |
+| Tags approved | Table Column Rules |
+| Automation candidates identified | Table Column Rules |
+| Test data references present, no sensitive values | §10 |
+| Screen / URL information present where known | Table Column Rules |
+| Regression impact assessed | §11 |
+| Risks documented | §8 |
+| Open questions documented | §9 |
+| No unsupported requirements invented | §1 |
+| Traceability: JIRA → AC → Scenario → TC | §1, §3 |
+| Internal consistency across all sections | All sections |
+| Project naming and folder conventions | §12, `power.md` |
