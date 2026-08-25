@@ -7,6 +7,16 @@
 - The **skill** defines what a capability does (purpose, input, output, workflow).
 - The **steering** defines how that capability must behave (rules, standards, constraints).
 
+The framework follows this separation:
+
+**Layer	File** => **Purpose**
+Skill	-> SKILL.md	=> What the agent does — role, inputs, outputs, workflow steps, completion criteria
+Steering ->	*-standards.md	=> How it must behave — rules, constraints, quality standards, enforcement policies
+
+The skill is the agent's job description. 
+The steering is the compliance rulebook. 
+An agent reads both — the skill tells it what to do, the steering tells it how to do it correctly.
+
 ---
 
 ## Setup
