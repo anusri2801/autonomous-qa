@@ -61,7 +61,7 @@ Failure remediation belongs to the `healTest` skill.
 Primary:
 
 ```text
-Generated Playwright automation (tests/ directory)
+Generated Playwright automation (src/tests/ directory)
 ```
 
 Supporting (where available):
@@ -174,7 +174,7 @@ Example:
 JIRA:      SCRUM-2
 AC:        AC-01
 Test Case: TC-001
-Spec:      tests/Login/login.spec.ts
+Spec:      src/tests/Login/login.spec.ts
 Status:    PASSED
 ```
 

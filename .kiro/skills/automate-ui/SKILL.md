@@ -107,7 +107,7 @@ Produce Automation Summary
 
 | Artifact | Location |
 |---|---|
-| Playwright specs | `tests/[Feature]/[feature-name].spec.ts` |
+| Playwright specs | `src/tests/[Feature]/[feature-name].spec.ts` |
 | Page Objects | `src/pages/[Feature]Page.ts` |
 | Test data (if new) | `src/testdata/[feature]data.ts` |
 

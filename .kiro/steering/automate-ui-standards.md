@@ -65,7 +65,7 @@ Typical project locations:
 
 ```text
 src/pages/
-tests/
+src/tests/
 src/testdata/
 src/utils/
 src/fixtures/
@@ -303,11 +303,10 @@ Do not introduce a new tag from the automation agent.
 Project conventions (governed by `testDir` in `playwright.config.ts`):
 
 ```text
-tests/
-└── [Feature]/
-    └── [feature-name].spec.ts
-
 src/
+├── tests/
+│   └── [Feature]/
+│       └── [feature-name].spec.ts
 ├── pages/
 │   └── [Feature]Page.ts
 ├── testdata/
@@ -316,14 +315,14 @@ src/
 └── fixtures/
 ```
 
-- Specs live under `tests/` — matches `testDir: './tests'` in `playwright.config.ts`.
+- Specs live under `src/tests/` — matches `testDir: './src/tests'` in `playwright.config.ts`.
 - Page Objects, test data, utilities and fixtures live under `src/`.
 - If `testDir` is changed in `playwright.config.ts`, specs must be placed in the updated location.
 
 Examples:
 
 ```
-tests/Login/login.spec.ts
+src/tests/auth/login.spec.ts
 src/pages/LoginPage.ts
 src/testdata/logindata.ts
 ```

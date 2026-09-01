@@ -265,7 +265,7 @@ and acceptance criteria.
 - Approved test plan
 - Existing automation framework
 
-**Output:** `src/tests/ui/[app-folder]/[feature-name].spec.ts`
+**Output:** `src/tests/[Feature]/[feature-name].spec.ts`
 
 **Process:**
 
@@ -372,13 +372,13 @@ testplan/DEMO-001-password-reset.md
 ### 5.2 UI Automation Tests
 
 ```text
-src/tests/ui/[app-folder]/[feature-name].spec.ts
+src/tests/[Feature]/[feature-name].spec.ts
 ```
 
 Example:
 
 ```text
-src/tests/ui/auth/password-reset.spec.ts
+src/tests/auth/password-reset.spec.ts
 ```
 
 ### 5.3 Page Objects
