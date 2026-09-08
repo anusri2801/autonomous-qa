@@ -1,0 +1,186 @@
+{
+  "ticket": "SCRUM-2",
+  "testPlan": "testplan/SCRUM-2-login.md",
+  "validationStatus": "PASS",
+  "executionDate": "2026-08-21",
+  "browser": "chromium",
+  "environment": "https://parabank.parasoft.com",
+  "summary": {
+    "total": 11,
+    "passed": 6,
+    "failed": 5,
+    "skipped": 0,
+    "blocked": 0,
+    "passRate": 0.545
+  },
+  "results": [
+    {
+      "testCaseId": "TC-001",
+      "title": "Successful login with valid credentials",
+      "acceptanceCriteria": "AC-01",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@smoke", "@regression"],
+      "status": "PASSED",
+      "duration": 175,
+      "error": null,
+      "errorCategory": null
+    },
+    {
+      "testCaseId": "TC-002",
+      "title": "Login fails with invalid username and password",
+      "acceptanceCriteria": "AC-02",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "FAILED",
+      "duration": 176,
+      "error": "expect(locator).toBeVisible() failed - Locator: locator('p.error')",
+      "errorCategory": "ASSERTION_FAILURE",
+      "healingEligible": true,
+      "healingClassification": "TEST_DEFECT",
+      "evidence": {
+        "location": "src/pages/LoginPage.ts:86",
+        "issue": "Error message locator not visible"
+      }
+    },
+    {
+      "testCaseId": "TC-003",
+      "title": "Login fails with valid username and wrong password",
+      "acceptanceCriteria": "AC-02",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "FAILED",
+      "duration": 176,
+      "error": "expect(locator).toBeVisible() failed - Locator: locator('p.error')",
+      "errorCategory": "ASSERTION_FAILURE",
+      "healingEligible": true,
+      "healingClassification": "TEST_DEFECT",
+      "evidence": {
+        "location": "src/pages/LoginPage.ts:86",
+        "issue": "Error message locator not visible"
+      }
+    },
+    {
+      "testCaseId": "TC-004",
+      "title": "Login fails when username is empty",
+      "acceptanceCriteria": "AC-03",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "PASSED",
+      "duration": 175,
+      "error": null,
+      "errorCategory": null
+    },
+    {
+      "testCaseId": "TC-005",
+      "title": "Login fails when password is empty",
+      "acceptanceCriteria": "AC-04",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "PASSED",
+      "duration": 161,
+      "error": null,
+      "errorCategory": null
+    },
+    {
+      "testCaseId": "TC-006",
+      "title": "Login fails when both username and password are empty",
+      "acceptanceCriteria": "AC-03, AC-04",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "PASSED",
+      "duration": 162,
+      "error": null,
+      "errorCategory": null
+    },
+    {
+      "testCaseId": "TC-007",
+      "title": "Authenticated user can access a protected banking page",
+      "acceptanceCriteria": "AC-05",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@smoke", "@regression"],
+      "status": "FAILED",
+      "duration": 180,
+      "error": "expect(locator).toBeVisible() failed - Locator: locator('#accountTable, h1.title')",
+      "errorCategory": "LOCATOR_FAILURE",
+      "healingEligible": true,
+      "healingClassification": "TEST_DEFECT",
+      "evidence": {
+        "location": "src/tests/Login/login.spec.ts:128",
+        "issue": "Page element locator not found or not visible after login"
+      }
+    },
+    {
+      "testCaseId": "TC-008",
+      "title": "Unauthenticated user cannot access a protected banking page",
+      "acceptanceCriteria": "AC-05",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "FAILED",
+      "duration": 161,
+      "error": "expect(page).not.toHaveURL(/overview.htm/) failed - Unauthenticated access allowed",
+      "errorCategory": "APPLICATION_DEFECT",
+      "healingEligible": false,
+      "healingClassification": "APPLICATION_DEFECT",
+      "evidence": {
+        "issue": "Application allows unauthenticated access to protected pages - Security issue"
+      }
+    },
+    {
+      "testCaseId": "TC-009",
+      "title": "Login page renders correctly",
+      "acceptanceCriteria": "AC-01, AC-03, AC-04",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@smoke", "@sanity"],
+      "status": "PASSED",
+      "duration": 114,
+      "error": null,
+      "errorCategory": null
+    },
+    {
+      "testCaseId": "TC-010",
+      "title": "Login with unregistered user credentials fails",
+      "acceptanceCriteria": "AC-02",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "FAILED",
+      "duration": 110,
+      "error": "expect(locator).toBeVisible() failed - Locator: locator('p.error')",
+      "errorCategory": "ASSERTION_FAILURE",
+      "healingEligible": true,
+      "healingClassification": "TEST_DEFECT",
+      "evidence": {
+        "location": "src/pages/LoginPage.ts:86",
+        "issue": "Error message locator not visible"
+      }
+    },
+    {
+      "testCaseId": "TC-011",
+      "title": "Password field masks input",
+      "acceptanceCriteria": "AC-01",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "status": "PASSED",
+      "duration": 116,
+      "error": null,
+      "errorCategory": null
+    }
+  ],
+  "failureSummary": {
+    "testDefects": [
+      "TC-002",
+      "TC-003",
+      "TC-007",
+      "TC-010"
+    ],
+    "applicationDefects": [
+      "TC-008"
+    ]
+  },
+  "healingRecommendation": "Ready for healing - 4 tests classified as TEST_DEFECT. Report TC-008 as application defect.",
+  "nextSteps": [
+    "Apply healing to address TEST_DEFECT classifications",
+    "Re-run tests after healing",
+    "Report application defect (TC-008) to development team",
+    "Update JIRA with final execution status"
+  ]
+}

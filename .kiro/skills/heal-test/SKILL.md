@@ -79,6 +79,12 @@ src/testdata/[feature]data.ts
 
 ## Outputs
 
+
+| Artifact | Location |
+|---|---|
+| Human-readable report | `execution/[ticket-key]-[short-name]/healing-report.md` |
+| Machine-readable results | `execution/[ticket-key]-[short-name]/healing-results.json` |
+
 | Scenario | Output Status | Contains |
 |---|---|---|
 | **Healing Proposed** | `HEALING_PROPOSED` | Diff, rationale, confidence score |

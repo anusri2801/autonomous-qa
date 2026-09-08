@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../src/pages/LoginPage';
-import { loginData } from '../../src/testdata/logindata';
+import { LoginPage } from '../../pages/LoginPage';
+import { loginData } from '../../testdata/logindata';
 
 /**
  * JIRA:     SCRUM-2 — Allow registered customers to log in securely
@@ -130,8 +130,7 @@ test.describe('SCRUM-2 — Customer Login', () => {
 
       // Navigate to a protected banking page (Accounts Overview)
       await page.goto('/parabank/overview.htm');
-      await expect(page).toHaveURL(/overview\.htm/);
-      await expect(page.locator('#accountTable, h1.title')).toBeVisible();
+      await loginPage.assertProtectedPageAccessible();
     }
   );
 

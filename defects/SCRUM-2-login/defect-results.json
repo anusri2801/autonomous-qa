@@ -1,0 +1,194 @@
+{
+  "sourceStory": "SCRUM-2",
+  "featureArea": "Customer Login / Authentication",
+  "defectManagementDate": "2026-08-21",
+  "defectsIdentified": 2,
+  "defectAnalysisSummary": {
+    "testCasesAnalyzed": 5,
+    "healingAttempted": 4,
+    "healed": 1,
+    "applicationDefects": 2,
+    "noApplicationDefects": 0,
+    "requiresHumanReview": 0,
+    "duplicatesFound": 0
+  },
+  "defects": [
+    {
+      "defectId": 1,
+      "summary": "Login - Invalid or wrong credentials accepted as successful",
+      "severity": "CRITICAL",
+      "priority": "CRITICAL",
+      "type": "Bug",
+      "sourceStory": "SCRUM-2",
+      "acceptanceCriteriaAffected": ["AC-02", "AC-04"],
+      "testCasesAffected": ["TC-002", "TC-003", "TC-010"],
+      "rootCause": "Application login validation is bypassed - any credentials accepted",
+      "rootCauseCategory": "APPLICATION",
+      "reproducibility": "Always",
+      "confidence": "HIGH",
+      "confidenceScore": 95,
+      "applicationDefect": true,
+      "expectedBehaviour": "Login should fail and display error message when invalid credentials are submitted",
+      "actualBehaviour": "Login succeeds and user is redirected to authenticated area (/parabank/overview.htm)",
+      "impact": {
+        "security": "CRITICAL - Invalid credentials grant access to banking pages",
+        "business": "HIGH - Login validation is fundamental",
+        "users": "ALL - Any user can log in with any credentials",
+        "compliance": "CRITICAL - Violates security standards"
+      },
+      "evidence": {
+        "testFailures": ["TC-002", "TC-003", "TC-010"],
+        "executionReport": "execution/SCRUM-2-login/execution-report.md",
+        "executionResults": "execution/SCRUM-2-login/execution-results.json",
+        "healingReport": "execution/SCRUM-2-login/healing-report.md",
+        "testCode": "src/tests/Login/login.spec.ts"
+      },
+      "duplicateSearch": {
+        "performed": true,
+        "criteria": [
+          "Source Story: SCRUM-2",
+          "Area: Login/Authentication",
+          "Test Cases: TC-002, TC-003, TC-010",
+          "Acceptance Criteria: AC-02, AC-04"
+        ],
+        "matchingDefectFound": false
+      },
+      "environment": {
+        "browser": "Chromium",
+        "url": "https://parabank.parasoft.com",
+        "testEnvironment": "parabank.parasoft.com"
+      },
+      "defectCreationStatus": "READY",
+      "jiiraLinkingStatus": "PENDING",
+      "jiraDefectKey": null,
+      "recommendedAction": "CREATE_NEW_DEFECT"
+    },
+    {
+      "defectId": 2,
+      "summary": "Login - Unauthenticated users can access protected banking pages",
+      "severity": "CRITICAL",
+      "priority": "CRITICAL",
+      "type": "Bug",
+      "sourceStory": "SCRUM-2",
+      "acceptanceCriteriaAffected": ["AC-05"],
+      "testCasesAffected": ["TC-008"],
+      "rootCause": "Authentication check not enforced on protected endpoints",
+      "rootCauseCategory": "APPLICATION",
+      "reproducibility": "Always",
+      "confidence": "HIGH",
+      "confidenceScore": 95,
+      "applicationDefect": true,
+      "expectedBehaviour": "Unauthenticated users should be denied access to protected pages and redirected to login",
+      "actualBehaviour": "Protected page (/parabank/overview.htm) loads successfully for unauthenticated users",
+      "impact": {
+        "security": "CRITICAL - Any user can access protected banking pages without credentials",
+        "compliance": "CRITICAL - Violates authentication requirements",
+        "business": "CRITICAL - Core security feature broken",
+        "users": "CRITICAL - Banking data exposed to unauthorized access"
+      },
+      "evidence": {
+        "testFailures": ["TC-008"],
+        "executionReport": "execution/SCRUM-2-login/execution-report.md",
+        "executionResults": "execution/SCRUM-2-login/execution-results.json",
+        "healingReport": "execution/SCRUM-2-login/healing-report.md",
+        "testCode": "src/tests/Login/login.spec.ts"
+      },
+      "duplicateSearch": {
+        "performed": true,
+        "criteria": [
+          "Source Story: SCRUM-2",
+          "Area: Authentication/Authorization",
+          "Test Case: TC-008",
+          "Acceptance Criteria: AC-05"
+        ],
+        "matchingDefectFound": false
+      },
+      "environment": {
+        "browser": "Chromium",
+        "url": "https://parabank.parasoft.com",
+        "testEnvironment": "parabank.parasoft.com"
+      },
+      "defectCreationStatus": "READY",
+      "jiiraLinkingStatus": "PENDING",
+      "jiraDefectKey": null,
+      "recommendedAction": "CREATE_NEW_DEFECT"
+    }
+  ],
+  "defectCreationGate": {
+    "failureNotAutomationDefect": true,
+    "failureNotEnvironmentIssue": true,
+    "failureNotTestDataIssue": true,
+    "expectedBehaviourDocumented": true,
+    "actualBehaviourEvidenced": true,
+    "duplicateSearchPerformed": true,
+    "sourceStoryKnown": true,
+    "testCaseIdKnown": true,
+    "sensitiveInformationRemoved": true,
+    "allGatesPassed": true
+  },
+  "traceability": {
+    "storyKey": "SCRUM-2",
+    "acceptanceCriteria": {
+      "AC-01": {
+        "testCases": ["TC-001", "TC-009", "TC-011"],
+        "status": "PASSING"
+      },
+      "AC-02": {
+        "testCases": ["TC-002", "TC-003", "TC-010"],
+        "status": "DEFECT - INVALID_CREDENTIALS_ACCEPTED",
+        "defectId": 1
+      },
+      "AC-03": {
+        "testCases": ["TC-004", "TC-006", "TC-009"],
+        "status": "PASSING"
+      },
+      "AC-04": {
+        "testCases": ["TC-005", "TC-006", "TC-009"],
+        "status": "DEFECT - INVALID_CREDENTIALS_ACCEPTED",
+        "defectId": 1
+      },
+      "AC-05": {
+        "testCases": ["TC-007", "TC-008"],
+        "status": "DEFECT - UNAUTH_ACCESS_ALLOWED",
+        "defectId": 2,
+        "note": "TC-007 healed and passing; TC-008 reveals auth check missing"
+      }
+    }
+  },
+  "nextActions": [
+    {
+      "action": "CREATE_JIRA_DEFECT",
+      "defectId": 1,
+      "priority": "CRITICAL",
+      "assignTo": "Development Team",
+      "description": "Create JIRA Bug for invalid credentials being accepted"
+    },
+    {
+      "action": "CREATE_JIRA_DEFECT",
+      "defectId": 2,
+      "priority": "CRITICAL",
+      "assignTo": "Development Team",
+      "description": "Create JIRA Bug for unauthenticated access to protected pages"
+    },
+    {
+      "action": "LINK_DEFECTS_TO_STORY",
+      "sourceStory": "SCRUM-2",
+      "linkDefectsTo": ["Defect-1", "Defect-2"]
+    },
+    {
+      "action": "UPDATE_JIRA_TESTING_NOTES",
+      "story": "SCRUM-2",
+      "instruction": "Include defect references and block release until fixed"
+    },
+    {
+      "action": "BLOCK_RELEASE",
+      "reason": "CRITICAL_SECURITY_DEFECTS",
+      "instruction": "Cannot proceed with release until authentication defects are resolved"
+    }
+  ],
+  "reportStatus": "COMPLETE",
+  "reportPath": "defects/SCRUM-2-login/defect-report.md",
+  "readyForJiraCreation": true,
+  "defectCreationBlocked": false,
+  "estimatedJiraCreationTime": "< 5 minutes"
+}

@@ -567,7 +567,24 @@ The validated test plan must remain unchanged.
 
 ---
 
-## 26. Completion State
+## 26. MCP Failure Handling
+
+For any JIRA MCP operation:
+
+1. Attempt the operation once.
+2. If it fails, inspect the error.
+3. Retry only when the error indicates a transient failure.
+4. Maximum retry count: 2.
+5. Do not repeatedly retry the same failed operation.
+6. If the operation fails after the allowed retries:
+   - Stop the current operation.
+   - Record the MCP failure.
+   - Return REQUIRES_HUMAN_REVIEW.
+   - Do not claim that the JIRA defect or issue link was created.
+
+---
+
+## 27. Completion State
 
 After successful publication:
 

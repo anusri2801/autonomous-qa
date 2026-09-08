@@ -458,4 +458,28 @@ Escalate (stop healing) if:
 
 **Escalation path:** Report to Test Runner → Failure Analyzer → Manual QA Review.
 
+
+---
+
+## 13. Artifact Location
+
+Healing artifacts must be stored under:
+
+```text
+execution/[ticket-key]-[short-name]/
+```
+
+Example:
+
+```text
+execution/SCRUM-2-login/
+```
+
+Required:
+
+```text
+healing-report.md
+healing-results.json
+```
+
 ```
