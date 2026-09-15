@@ -94,6 +94,15 @@ The framework uses structured directories for artifacts:
 
 ```text
 .kiro/
+  skills/                            # Agent skill definitions
+    test-planner/
+    test-plan-validator/
+    jira-updater/
+    automate-ui/
+    test-runner/
+    heal-test/
+    defect-manager/
+    orchestrator/
   steering/                          # Behavioral standards
     global-standards.md
     test-planning-standards.md
@@ -104,6 +113,9 @@ The framework uses structured directories for artifacts:
     jira-testing-notes-standards.md
   settings/
     mcp.json                         # Atlassian MCP configuration
+  agents/                            # Custom agent definitions (optional)
+  hooks/                             # Kiro hooks (events & automation)
+  specs/                             # Spec definitions
     
 testplan/                            # Approved test plans
   SCRUM-2-login.md
