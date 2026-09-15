@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.1",
+  "runId": "SCRUM-2-login-20260915T021233Z-503362",
+  "ticketKey": "SCRUM-2",
+  "shortName": "login",
+  "status": "IN_PROGRESS",
+  "currentStage": "testPlanner",
+  "nextAction": "Run test planner",
+  "createdAt": "2026-09-15T02:12:33.006Z",
+  "updatedAt": "2026-09-15T02:12:33.006Z",
+  "stages": {
+    "testPlanner": {
+      "status": "PENDING",
+      "startedAt": null,
+      "completedAt": null,
+      "artifacts": [],
+      "error": null
+    },
+    "testPlanValidator": {
+      "status": "PENDING",
+      "startedAt": null,
+      "completedAt": null,
+      "artifacts": [],
+      "error": null
+    },
+    "jiraUpdater": {
+      "status": "PENDING",
+      "startedAt": null,
+      "completedAt": null,
+      "artifacts": [],
+      "error": null
+    },
+    "automateUI": {
+      "status": "PENDING",
+      "startedAt": null,
+      "completedAt": null,
+      "artifacts": [],
+      "error": null
+    },
+    "testRunner": {
+      "status": "PENDING",
+      "startedAt": null,
+      "completedAt": null,
+      "artifacts": [],
+      "error": null
+    },
+    "healTest": {
+      "status": "PENDING",
+      "startedAt": null,
+      "completedAt": null,
+      "artifacts": [],
+      "error": null
+    },
+    "defectManager": {
+      "status": "PENDING",
+      "startedAt": null,
+      "completedAt": null,
+      "artifacts": [],
+      "error": null
+    }
+  },
+  "history": [
+    {
+      "timestamp": "2026-09-15T02:12:33.006Z",
+      "event": "RUN_CREATED",
+      "message": "Orchestration run SCRUM-2-login-20260915T021233Z-503362 created."
+    }
+  ]
+}

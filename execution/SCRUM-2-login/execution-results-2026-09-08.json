@@ -1,0 +1,427 @@
+{
+  "executionMetadata": {
+    "ticket": "SCRUM-2",
+    "testPlan": "testplan/SCRUM-2-login.md",
+    "validationStatus": "PASS",
+    "executionDate": "2026-09-08",
+    "executionTimestamp": "2026-09-08T07:07:24Z",
+    "environment": "https://parabank.parasoft.com",
+    "browsers": ["chromium", "firefox", "webkit"],
+    "totalDuration": 37336
+  },
+  "executionSummary": {
+    "total": 33,
+    "passed": 24,
+    "failed": 9,
+    "skipped": 0,
+    "blocked": 0,
+    "passRate": 0.727,
+    "failRate": 0.273
+  },
+  "testResults": [
+    {
+      "testCaseId": "TC-001",
+      "title": "Successful login with valid credentials",
+      "acceptanceCriteria": "AC-01",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@smoke", "@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "FAILED",
+          "duration": 6788,
+          "errorMessage": "Expected pattern: /overview\\.htm/ Received string: https://parabank.parasoft.com/parabank/login.htm;jsessionid=A6D7C23D983F7F41D2AA1D6C2656503B",
+          "errorCategory": "LOCATOR_FAILURE",
+          "failureClassification": "TEST_DATA_FAILURE"
+        },
+        "firefox": {
+          "status": "FAILED",
+          "duration": 6745,
+          "errorMessage": "Expected pattern: /overview\\.htm/ but login redirect did not occur",
+          "errorCategory": "LOCATOR_FAILURE",
+          "failureClassification": "TEST_DATA_FAILURE"
+        },
+        "webkit": {
+          "status": "FAILED",
+          "duration": 6832,
+          "errorMessage": "Expected pattern: /overview\\.htm/ but login redirect did not occur",
+          "errorCategory": "LOCATOR_FAILURE",
+          "failureClassification": "TEST_DATA_FAILURE"
+        }
+      },
+      "overallStatus": "FAILED",
+      "rootCause": "Registered user credentials (test/Pass@123) not accepted by application",
+      "healingEligible": false,
+      "healing": {
+        "classification": "TEST_DATA_FAILURE",
+        "action": "Verify test credentials in SIT environment"
+      }
+    },
+    {
+      "testCaseId": "TC-002",
+      "title": "Login fails with invalid username and password",
+      "acceptanceCriteria": "AC-02",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 2059
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 2015
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 2147
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    },
+    {
+      "testCaseId": "TC-003",
+      "title": "Login fails with valid username and wrong password",
+      "acceptanceCriteria": "AC-02",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 1988
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 2042
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 2096
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    },
+    {
+      "testCaseId": "TC-004",
+      "title": "Login fails when username is empty",
+      "acceptanceCriteria": "AC-03",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 1839
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 1723
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 1895
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    },
+    {
+      "testCaseId": "TC-005",
+      "title": "Login fails when password is empty",
+      "acceptanceCriteria": "AC-04",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 1496
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 1589
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 1712
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    },
+    {
+      "testCaseId": "TC-006",
+      "title": "Login fails when both username and password are empty",
+      "acceptanceCriteria": "AC-03, AC-04",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 1079
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 1156
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 1234
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    },
+    {
+      "testCaseId": "TC-007",
+      "title": "Authenticated user can access a protected banking page",
+      "acceptanceCriteria": "AC-05",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@smoke", "@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "FAILED",
+          "duration": 6680,
+          "errorMessage": "Test prerequisite failed: login unsuccessful with credentials test/Pass@123",
+          "errorCategory": "LOCATOR_FAILURE",
+          "failureClassification": "TEST_DATA_FAILURE"
+        },
+        "firefox": {
+          "status": "FAILED",
+          "duration": 6712,
+          "errorMessage": "Test prerequisite failed: login unsuccessful",
+          "errorCategory": "LOCATOR_FAILURE",
+          "failureClassification": "TEST_DATA_FAILURE"
+        },
+        "webkit": {
+          "status": "FAILED",
+          "duration": 6845,
+          "errorMessage": "Test prerequisite failed: login unsuccessful",
+          "errorCategory": "LOCATOR_FAILURE",
+          "failureClassification": "TEST_DATA_FAILURE"
+        }
+      },
+      "overallStatus": "FAILED",
+      "rootCause": "Depends on TC-001 (valid login); credentials not accepted",
+      "healingEligible": false,
+      "healing": {
+        "classification": "TEST_DATA_FAILURE",
+        "action": "Resolve TC-001 credential issue first"
+      }
+    },
+    {
+      "testCaseId": "TC-008",
+      "title": "Unauthenticated user cannot access a protected banking page",
+      "acceptanceCriteria": "AC-05",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "FAILED",
+          "duration": 5853,
+          "errorMessage": "Expected not to have URL /overview.htm/ but received https://parabank.parasoft.com/parabank/overview.htm",
+          "errorCategory": "APPLICATION_ERROR",
+          "failureClassification": "APPLICATION_DEFECT"
+        },
+        "firefox": {
+          "status": "FAILED",
+          "duration": 5927,
+          "errorMessage": "Unauthenticated access to protected page allowed",
+          "errorCategory": "APPLICATION_ERROR",
+          "failureClassification": "APPLICATION_DEFECT"
+        },
+        "webkit": {
+          "status": "FAILED",
+          "duration": 6104,
+          "errorMessage": "Unauthenticated access to protected page allowed",
+          "errorCategory": "APPLICATION_ERROR",
+          "failureClassification": "APPLICATION_DEFECT"
+        }
+      },
+      "overallStatus": "FAILED",
+      "rootCause": "Application allows direct navigation to /overview.htm without authentication",
+      "healingEligible": false,
+      "defectEligible": true,
+      "defectClassification": "APPLICATION_DEFECT",
+      "defectSeverity": "CRITICAL",
+      "defectSummary": "Security: Unauthenticated access to protected banking page allowed",
+      "defectDescription": "Test TC-008 verifies that unauthenticated users cannot access protected banking pages. The test navigates directly to /parabank/overview.htm without logging in. Expected: Access denied or redirect to login. Actual: Page is accessible, revealing an authorization bypass vulnerability."
+    },
+    {
+      "testCaseId": "TC-009",
+      "title": "Login page renders correctly",
+      "acceptanceCriteria": "AC-01, AC-03, AC-04",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@smoke", "@sanity"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 1245
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 1156
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 780
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    },
+    {
+      "testCaseId": "TC-010",
+      "title": "Login with unregistered user credentials fails",
+      "acceptanceCriteria": "AC-02",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 2078
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 2134
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 1251
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    },
+    {
+      "testCaseId": "TC-011",
+      "title": "Password field masks input",
+      "acceptanceCriteria": "AC-01",
+      "spec": "src/tests/Login/login.spec.ts",
+      "tags": ["@regression"],
+      "browsers": {
+        "chromium": {
+          "status": "PASSED",
+          "duration": 1589
+        },
+        "firefox": {
+          "status": "PASSED",
+          "duration": 1423
+        },
+        "webkit": {
+          "status": "PASSED",
+          "duration": 1417
+        }
+      },
+      "overallStatus": "PASSED",
+      "rootCause": null
+    }
+  ],
+  "acceptanceCriteriaCoverage": [
+    {
+      "acId": "AC-01",
+      "description": "Valid login successful",
+      "testCases": ["TC-001", "TC-009", "TC-011"],
+      "coverage": "COVERED",
+      "status": "PARTIAL_PASS",
+      "notes": "TC-001 failed due to invalid credentials; TC-009 and TC-011 pass"
+    },
+    {
+      "acId": "AC-02",
+      "description": "Invalid credentials rejected",
+      "testCases": ["TC-002", "TC-003", "TC-010"],
+      "coverage": "COVERED",
+      "status": "PASS",
+      "notes": "All test cases passed across all browsers"
+    },
+    {
+      "acId": "AC-03",
+      "description": "Empty username validation",
+      "testCases": ["TC-004", "TC-006", "TC-009"],
+      "coverage": "COVERED",
+      "status": "PASS",
+      "notes": "All test cases passed across all browsers"
+    },
+    {
+      "acId": "AC-04",
+      "description": "Empty password validation",
+      "testCases": ["TC-005", "TC-006", "TC-009"],
+      "coverage": "COVERED",
+      "status": "PASS",
+      "notes": "All test cases passed across all browsers"
+    },
+    {
+      "acId": "AC-05",
+      "description": "Protected page access",
+      "testCases": ["TC-007", "TC-008"],
+      "coverage": "COVERED",
+      "status": "FAIL",
+      "notes": "TC-007 failed due to invalid credentials; TC-008 reveals security vulnerability"
+    }
+  ],
+  "failureSummary": {
+    "totalFailures": 9,
+    "byClassification": {
+      "TEST_DATA_FAILURE": {
+        "count": 6,
+        "testCases": ["TC-001", "TC-001", "TC-001", "TC-007", "TC-007", "TC-007"],
+        "description": "Invalid test credentials in SIT environment",
+        "healingEligible": false,
+        "action": "Verify and update test credentials in .env.SIT"
+      },
+      "APPLICATION_DEFECT": {
+        "count": 3,
+        "testCases": ["TC-008", "TC-008", "TC-008"],
+        "description": "Unauthenticated access to protected pages allowed (security vulnerability)",
+        "healingEligible": false,
+        "defectEligible": true,
+        "action": "Create JIRA defect and report to development team"
+      }
+    }
+  },
+  "nextActions": [
+    {
+      "priority": 1,
+      "action": "Verify test credentials",
+      "description": "Confirm user 'test' with password 'Pass@123' exists in SIT environment and is registered",
+      "impact": "Blocks TC-001 and TC-007 validation",
+      "status": "REQUIRED"
+    },
+    {
+      "priority": 2,
+      "action": "Create application defect",
+      "description": "Report TC-008 security vulnerability (unauthenticated access to protected pages)",
+      "impact": "Security issue requiring immediate remediation",
+      "defectKey": "PENDING",
+      "linkToStory": true,
+      "status": "REQUIRED"
+    },
+    {
+      "priority": 3,
+      "action": "Re-execute tests after fixes",
+      "description": "Run full test suite after credential verification and defect acknowledgment",
+      "command": "TEST_ENV=SIT npx playwright test src/tests/Login/login.spec.ts --reporter=html,json",
+      "status": "PENDING"
+    }
+  ],
+  "artifacts": {
+    "testResults": "/Users/anu/autonomous-qa/test-results/",
+    "htmlReport": "/Users/anu/autonomous-qa/playwright-report/index.html",
+    "executionReport": "execution/SCRUM-2-login/execution-report-2026-09-08.md",
+    "pageObjects": "src/pages/LoginPage.ts",
+    "testSpecs": "src/tests/Login/login.spec.ts",
+    "testData": "src/testdata/logindata.ts"
+  },
+  "traceability": {
+    "jira": "SCRUM-2",
+    "testPlan": "testplan/SCRUM-2-login.md",
+    "validation": "validation/SCRUM-2-login-validation.md",
+    "executionResults": "execution/SCRUM-2-login/execution-results-2026-09-08.json"
+  },
+  "executionStatus": "COMPLETED_WITH_ISSUES",
+  "reportGeneratedAt": "2026-09-08T17:15:00Z",
+  "readyForDownstream": {
+    "healing": false,
+    "defectManagement": true,
+    "jiiraUpdate": true
+  }
+}
